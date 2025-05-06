@@ -1,16 +1,25 @@
 def binary_search(arr, target):
-    low = 0
-    high = len(arr) - 1
+    left = 0
+    right = len(arr) - 1
 
-    while low <= high:
-        mid = (low + high) // 2
+    while left <= right:
+        mid = (left + right) // 2
+
         if arr[mid] == target:
             return mid
         elif arr[mid] < target:
-            low = mid + 1
+            left = mid + 1
         else:
-            high = mid - 1
+            right = mid - 1
 
-    return -1  
+    return -1
 
-binary_search([2, 34, 54, 32, 54, 3], 54)
+arr = [2, 5, 7, 10, 15, 20, 25]
+target = 15
+
+result = binary_search(arr, target)
+
+if result != -1:
+    print(f"Element found at index {result}")
+else:
+    print("Element not found")
